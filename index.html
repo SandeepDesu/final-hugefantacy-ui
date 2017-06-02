@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hugefantacy</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="It is a application for video, voice, chat and  screen sharing.">
+    <meta name="author" content="hugefantacy">
+    <meta content="chat, video, video calling, conference, voice, voice calling, screen sharing,screen" name="keywords">
+    <!-- bootstrap css -->
+    <link href="css/core/bootstrap.css" rel="stylesheet"/>
+    <link href="css/core/bootstrap-social.css" rel="stylesheet" />
+    <link href="css/core/font-awesome.css" rel="stylesheet">
+
+    <!--custom css -->
+    <link href="css/custom/custom.css" rel="stylesheet"/>
+</head>
+<body ng-app="hugefantacy">
+
+<div ui-view></div>
+
+
+<!-- jquery modules -->
+<script src="js/core/jquery-3.2.1.js"></script>
+
+<!-- angular modules -->
+<script src="js/core/angular.js"></script>
+<script src="js/core/angular-sanitize.js"></script>
+<script src="js/core/angular-resource.js"></script>
+<script src="js/core/angular-animate.js"></script>
+<script src="js/core/angular-messages.js"></script>
+<script src="js/core/angular-ui-router.js"></script>
+
+<!-- bootstrap modules -->
+<script src="js/core/bootstrap.js"></script>
+<script src="js/core/ui-bootstrap-tpls-2.5.0.js"></script>
+
+
+<!-- application modules and app level modules -->
+<script src="application/app.js"></script>
+<script src="application/config.js"></script>
+
+
+<!-- application directives -->
+<script src="application/directives/common/home-page-header.js"></script>
+<script src="application/directives/common/sign-in-page-header.js"></script>
+<script src="application/directives/common/sign-up-page-header.js"></script>
+<script src="application/directives/common/validations.js"></script>
+
+<!-- application controllers -->
+<script src="application/controllers/common/signInController.js"></script>
+<script src="application/controllers/common/signUpController.js"></script>
+
+<!-- application services -->
+<script src="application/services/loginServices.js"></script>
+
+</body>
+</html>

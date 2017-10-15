@@ -1,19 +1,25 @@
-app.controller('signInController',['$scope','loginService',function($scope,loginService){
+app.controller('signInController',['$scope','loginService','$auth',function($scope,loginService,$auth){
     $scope.authenticate = function() {
-       if($scope.username === null || $scope.username === undefined){
-           $scope.emailErrorMessage = "Please enter email address";
-       }else if($scope.password === null || $scope.password === undefined){
-           $scope.passwordErrorMessage = "Please enter password";
-       }else {
-           $scope.emailErrorMessage = null;
-           $scope.passwordErrorMessage = null;
-           loginService.authenticate({
-               username:$scope.username,
-               password:$scope.password,
-               loginType:"custom"
-           }).then(function(result){
-               console.log(result);
-           });
-       }
+        if($scope.emailValid && $scope.password){
+            loginService.authenticate({username:$scope.username,password:$scope.password,type:'custom'}).then(function(res){
+                if(res.message){
+                    $scope.passwordCheck = res.message;
+                }else{
+                    console.log(res);
+                }
+            },function(err){
+                $scope.passwordCheck = "Some thing went wrong,please try again later";
+            });
+        } else {
+            $scope.passwordCheck = "Please fill required fields.";
+        }
+    };
+
+    $scope.socialLogin = function(providerName){
+        loginService.socialLogin(providerName).then(function(res){
+              console.log(res);
+        },function(err){
+            $scope.passwordCheck = "Some thing went wrong,please try again later";
+        });
     };
 }]);

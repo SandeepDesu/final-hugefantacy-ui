@@ -3,5 +3,6 @@ var app = angular.module('hugefantacy',[
     'ngResource',
     'ngAnimate',
     'ngMessages',
-    'ui.router'
-])
+    'ui.router',
+    'satellizer'
+]);

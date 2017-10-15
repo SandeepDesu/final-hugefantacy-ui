@@ -5,34 +5,33 @@
             <div class="row" align="center">
                 <legend>Social login's</legend>
                 <div class="col-md-6">
-                    <a class="btn btn-block btn-social btn-facebook">
+                    <a class="btn btn-block btn-social btn-facebook" ng-click="socialLogin('facebook')">
                         <span class="fa fa-facebook"></span> Sign in with facebook
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <a class="btn btn-block btn-social btn-google">
+                    <a class="btn btn-block btn-social btn-google" ng-click="socialLogin('google')">
                         <span class="fa fa-google"></span> Sign in with google
                     </a>
                 </div>
             </div>
             <hr/>
             <div align="center">
-                <form class="form-horizontal">
+                <form class="form-horizontal" name="signInForm">
                     <legend>Login with your account</legend>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="email" type="text" class="form-control" ng-model="username" name="email" ng-click="emailErrorMessage = null" placeholder="Email">
+                        <input email-validation id="email" type="text" class="form-control" ng-model="username" ng-click="passwordCheck = ' '" name="email" placeholder="Email">
                     </div>
                     <div class="help-block">
-                        <span>{{emailErrorMessage}}</span>
+                       <span style="color:red" ng-bind="emailCheck"></span>
                     </div>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <input id="password" type="password" class="form-control" ng-model="password" ng-click="passwordErrorMessage = null" name="password" placeholder="Password">
+                        <input id="password" type="password" class="form-control" ng-model="password" ng-click="passwordCheck = ' '" name="password" placeholder="Password">
                     </div>
                     <div class="help-block">
-                        <span>{{passwordErrorMessage}}</span>
-                        <span>{{serviceErrorMessage}}</span>
+                        <span style="color:red" ng-bind="passwordCheck"></span>
                     </div>
                     <button type="submit" class="btn btn-success" ng-click="authenticate()">Continue</button>
                 </form>
